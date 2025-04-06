@@ -2,13 +2,20 @@ const express = require('express');
 const router = express.Router({ mergeParams: true });
 const reviewsController = require('../controllers/reviews');
 const { isLoggedIn, checkReviewOwner } = require('../middleware');
+const methodOverride = require('method-override');
 
-// Убедитесь, что reviewsController содержит все методы
-router.get('/new', reviewsController.getNewReviewForm); // Проверьте эту строку (строка 7)
+router.use(methodOverride('_method'));
+
+
+router.get('/new', reviewsController.getNewReviewForm);
 router.post('/', reviewsController.createReview);
 
 router.get('/:reviewId/edit', reviewsController.getEditReviewForm);
 router.put('/:reviewId', reviewsController.updateReview);
 router.delete('/:reviewId', reviewsController.deleteReview);
+
+
+router.post('/:reviewId/delete', reviewsController.deleteReview);
+
 
 module.exports = router;
