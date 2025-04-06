@@ -14,5 +14,6 @@ router.route('/:id')
   .delete(booksController.deleteBook);
 
 router.get('/:id/edit', booksController.updateBookForm);
+router.post('/:id/delete', booksController.deleteBook);
 
 module.exports = router;
