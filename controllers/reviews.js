@@ -22,21 +22,6 @@ module.exports = {
       res.redirect('back');
     }
   },
-
-  getEditReviewForm: async (req, res) => {
-    try {
-      const book = await booksService.getBookById(req.params.bookId);
-      const review = await reviewsService.getReviewById(
-        req.params.bookId,
-        req.params.reviewId
-      );
-      res.render('reviews/edit', { book, review });
-    } catch (err) {
-      req.flash('error', err.message);
-      res.redirect(`/books/${req.params.bookId}`);
-    }
-  },
-
   updateReview: async (req, res) => {
     try {
       await reviewsService.updateReview(
