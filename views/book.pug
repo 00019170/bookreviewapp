@@ -24,7 +24,6 @@ block content
           p Rating: #{review.rating}/5
           p By: #{review.author}
           p Posted: #{new Date(review.createdAt).toLocaleDateString()}
-          a(href=`/books/${book.id}/reviews/${review.id}/edit`) Edit
           form(action=`/books/${book.id}/reviews/${review.id}?_method=DELETE` method="POST")
             button.btn.btn-danger(type="submit") Delete Review
   else
