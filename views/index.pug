@@ -10,6 +10,5 @@ block content
           a(href=`/books/${book.id}`) #{book.title} — #{book.author} (#{book.year})
           form(action=`/books/${book.id}/delete`, method="POST", style="display:inline")
             button(type="submit") Delete
-          a(href=`/books/${book.id}/edit`) ✎ Edit
   else
     p No books available yet.
