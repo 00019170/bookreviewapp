@@ -9,8 +9,6 @@ router.use(methodOverride('_method'));
 
 router.get('/new', reviewsController.getNewReviewForm);
 router.post('/', reviewsController.createReview);
-
-router.get('/:reviewId/edit', reviewsController.getEditReviewForm);
 router.put('/:reviewId', reviewsController.updateReview);
 router.delete('/:reviewId', reviewsController.deleteReview);
 
